@@ -20,13 +20,19 @@ addButton.addEventListener('click', (e) => {
 });
 
 const addingBooks = () => {
+  list.innerHTML = '';
   collection.forEach((item) => {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add('book-div');
     const paragraph = document.createElement('p');
     paragraph.classList.add('p1');
     paragraph.textContent = `${item.title} written by ${item.author}`;
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove');
+    removeButton.textContent = 'Remove';
+
     bookDiv.appendChild(paragraph);
+    bookDiv.appendChild(removeButton);
     list.appendChild(bookDiv);
   });
 };
