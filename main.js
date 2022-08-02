@@ -33,10 +33,11 @@ const addingBooks = () => {
     removeButton.classList.add('remove');
     removeButton.textContent = 'Remove';
     removeButton.setAttribute('id', item.id);
-
+    const divider = document.createElement ('hr');
     bookDiv.appendChild(paragraph);
     bookDiv.appendChild(removeButton);
     list.appendChild(bookDiv);
+    bookDiv.appendChild(divider);
   });
 };
 
