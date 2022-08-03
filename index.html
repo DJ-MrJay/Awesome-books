@@ -23,14 +23,9 @@
       </div>
       <div class="input-container">
         <h1>Add a new book</h1>
-        <form action="#" class="form" method="post">
-          <input id="bookTitle" type="text" placeholder="Title" class="title" />
-          <input
-            id="bookAuthor"
-            type="text"
-            placeholder="Author"
-            class="author"
-          />
+        <form action="#" name="bookForm" class="form" method="post">
+          <input id="bookTitle" type="text" placeholder="Title" class="title" name="bookTitle" required>
+          <input id="bookAuthor" type="text" placeholder="Author" class="author" required>
           <button id="add-btn" type="button" class="add-button">Add</button>
         </form>
       </div>

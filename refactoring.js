@@ -42,12 +42,12 @@ function getInput() {
 // Display Inputs
 function addToDisplay(bookObject) {
   const list = document.querySelector('.list');
-  const book = document.createElement('p'); 
+  const book = document.createElement('p');
   book.classList.add('book');
   book.setAttribute('id', bookObject.id);
   book.innerHTML = `${bookObject.title} by ${bookObject.author}`;
   const removeButton = document.createElement('button');
-  removeButton.classList.add ('remove-button')
+  removeButton.classList.add('remove-button');
   removeButton.innerHTML = 'Remove';
   removeButton.addEventListener('click', () => collection.removeBook(bookObject.id));
   book.appendChild(removeButton);
@@ -56,7 +56,8 @@ function addToDisplay(bookObject) {
 
 // Add Button
 const addButton = document.getElementById('add-btn');
-addButton.addEventListener('click', () => {
+addButton.addEventListener('click', (e) => {
+  e.preventDefault();
   const book = getInput();
   collection.addBook(book);
 });
