@@ -21,16 +21,16 @@ h1 {
   gap: 1rem;
   padding: 1rem;
   align-items: center;
+  height: 100vh;
 }
 
-.list {
-  border: #000 1px solid;
-  width: 80%;
+.collection {
   display: flex;
   flex-direction: column;
+  width: 70%;
 }
 
-.book {
+.collection div {
   display: flex;
   justify-content: space-between;
   background-color: #e5e5e5;
@@ -63,8 +63,7 @@ input {
   padding: 5px;
 }
 
-.add-button,
-.remove-button {
+button {
   width: fit-content;
   padding: 1px 5px;
 }

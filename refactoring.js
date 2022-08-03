@@ -1,63 +1,82 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-use-before-define */
+const collection = document.querySelector('.collection');
+const title = document.querySelector('.title');
+const author = document.querySelector('.author');
+const addBtn = document.querySelector('.add-button');
+let id = 1 || JSON.parse(localStorage.getItem('maxID'));
 
-class Book {
-  constructor(title, author) {
+class BookObject {
+  constructor(title, author, id) {
     this.title = title;
     this.author = author;
-    this.id = Math.random();
-  }
-}
-
-class Collection {
-  constructor() {
-    this.data = [];
+    this.id = id;
   }
 
-  addBook(book) {
-    this.data.push(book);
-    localStorage.setItem('collection', JSON.stringify(this.data));
-    addToDisplay(book);
+  static displayBooks = () => {
+    collection.innerHTML = '';
+    id = JSON.parse(localStorage.getItem('maxID'));
+    const keys = Object.keys(localStorage);
+    keys.forEach((element) => {
+      if (element === 'maxID') return;
+      const retrievedBook = JSON.parse(localStorage.getItem(element));
+      this.createElements(retrievedBook.title, retrievedBook.author, element);
+    });
   }
 
-  removeBook(id) {
-    const book = document.getElementById(id);
-    book.remove();
-    this.data = this.data.filter((bookObject) => bookObject.id !== id);
-    localStorage.setItem('collection', JSON.stringify(this.data));
+  static addBook = (title, author, id) => {
+    this.createElements(title, author, id);
   }
-}
 
-const collection = new Collection();
+  static createElements = (title, author, id) => {
+    const remBtn = [];
+    const div = [];
+    div[id] = document.createElement('div');
+    div[id].setAttribute('id', id);
+    const pText = document.createElement('p');
+    pText.textContent = `"${title}" by ${author}`;
 
-function getInput() {
-  const title = document.querySelector('.title');
-  const author = document.querySelector('.author');
-  const book = new Book(title.value, author.value);
-  title.value = '';
-  author.value = '';
-  return book;
-}
+    remBtn[id] = document.createElement('button');
+    remBtn[id].setAttribute('id', id);
+    remBtn[id].textContent = 'Remove';
+    remBtn[id].addEventListener('click', (e) => {
+      const key = e.target.id;
+      div[e.target.id].remove();
+      localStorage.removeItem(key);
+      if (collection.innerHTML === '') {
+        collection.style.border = 'none';
+      }
+    });
+    div[id].append(pText, remBtn[id]);
+    collection.appendChild(div[id]);
+    collection.style.border = '2px solid black';
+  }
 
-// Display Inputs
-function addToDisplay(bookObject) {
-  const list = document.querySelector('.list');
-  const book = document.createElement('p');
-  book.classList.add('book');
-  book.setAttribute('id', bookObject.id);
-  book.innerHTML = `${bookObject.title} by ${bookObject.author}`;
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('remove-button');
-  removeButton.innerHTML = 'Remove';
-  removeButton.addEventListener('click', () => collection.removeBook(bookObject.id));
-  book.appendChild(removeButton);
-  list.appendChild(book);
+  static storeLS = (book, id) => {
+    localStorage.setItem(id, JSON.stringify(book));
+  }
+
+  static clearInputs = () => {
+    document.querySelector('.title').value = '';
+    document.querySelector('.author').value = '';
+  }
 }
 
 // Add Button
-const addButton = document.getElementById('add-btn');
-addButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  const book = getInput();
-  collection.addBook(book);
+addBtn.addEventListener('click', () => {
+  if (title.value === '' || author.value === '') {
+    alert('Please fill in both fields'); // eslint-disable-line no-alert
+  } else {
+    BookObject.addBook(title.value, author.value, id);
+    const book = new BookObject(title.value, author.value, id);
+    BookObject.storeLS(book, id);
+    id += 1;
+    localStorage.setItem('maxID', id);
+    BookObject.clearInputs();
+  }
 });
+
+window.onload = () => {
+  BookObject.displayBooks();
+  if (collection.innerHTML === '') {
+    collection.style.border = 'none';
+  }
+};
