@@ -5,15 +5,10 @@
   font-family: 'Inter', sans-serif;
   text-decoration: none;
   list-style: none;
-  scroll-behavior: smooth;
 }
 
 h1 {
   font-family: 'Rubik', sans-serif;
-}
-
-.logo {
-  width 100px;
 }
 
 .container {
@@ -25,8 +20,36 @@ h1 {
   gap: 1rem;
   padding: 1rem;
   align-items: center;
-  height: 100vh;
+  width: 100vw;
 }
+
+/* Navigation bar */
+.fle .heading {
+  font-size: 32px;
+}
+.navigation-bar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation-pages {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin-left: 20px;
+}
+a {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+a:hover {
+  color: rgb(84, 84, 255);
+}
+
+/*Collection */
 
 .collection {
   display: flex;
@@ -63,23 +86,51 @@ h1 {
 input {
   min-width: 400px;
   border: gray 1px solid;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 5px;
+}
+section {
+  min-height: 70vh;
 }
 
 button {
   width: fit-content;
   padding: 1px 5px;
+  border: 1px solid gray;
+  font-size: 18px;
 }
 
-.book-list{
-  display:flex;
+/*Date */
+.date {
+  display: flex;
+  justify-content: flex-end;
+}
+#t1 {
+  text-decoration: underline;
+  white-space: nowrap;
+}
+iframe {
+  border: 0;
+}
+/* Book list section */
+.book-list {
+  display: flex;
 }
 
-.add-books{
-  display:none;
-}
+/* Add books section */
 
-.contact{
+.add-books {
   display: none;
+  justify-content: center;
+}
+
+.contact {
+  display: none;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
