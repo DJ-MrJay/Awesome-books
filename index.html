@@ -11,26 +11,82 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Awesome Books</title>
   </head>
 
   <body>
-    <div class="container">
-      <h1>All awesome books</h1>
-      <div class="collection"></div>
-      <div class="wave">
-        <img src="images/wave.svg" alt="Divider" />
-      </div>
-      <div class="input-container">
-        <h1>Add a new book</h1>
-        <form action="#" name="bookForm" class="form" method="post">
-          <input id="bookTitle" type="text" placeholder="Title" class="title" name="bookTitle" required>
-          <input id="bookAuthor" type="text" placeholder="Author" class="author" required>
-          <button id="add-btn" type="button" class="add-button">Add</button>
-        </form>
+    <header>
+      <nav class="nav-bar">
+        <img src="images/awesome-logo.svg" alt="Logo">
+        <div class="nav-list">
+          <a class="list-page" href="#">List</a>
+          |
+          <a class="add-page" href="#">Add New</a>
+          |
+          <a class="contact-page" href="#">Contact</a>
+        </div>
+      </nav>
+    </header>
+    
+    <div class="container-time">
+      <div>
+        <p id="date" class="date">Time</p>
       </div>
     </div>
 
-    <script src="refactoring.js"></script>
+    <div class="container">  
+      <section class="book-list">
+        <h1>All Awesome Books</h1>
+        <div class="collection"></div>
+      </section>
+    </div>
+
+    <div class="container">
+      <section class="add-books">
+        <h1>Add A New Book</h1>
+        <form action="#" name="bookForm" class="form" method="post">
+          <input
+            id="bookTitle"
+            type="text"
+            placeholder="Title"
+            class="title"
+            name="bookTitle"
+            required
+          />
+          <input
+            id="bookAuthor"
+            type="text"
+            placeholder="Author"
+            class="author"
+            required
+          />
+          <button id="add-btn" type="button" class="add-button">Add</button>
+        </form>
+      </section>
+    </div>
+    
+    <div class="container">
+      <section class="contact">
+        <h1>Contact us</h1>
+        <div class="contact-text" >
+          <h2>If you have any questions please contact us. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, dignissimos. Porro dolor ipsam ratione tempore iste, enim culpa laudantium nihil quia quidem! Quia harum, fuga deleniti esse neque mollitia alias?</h2>
+          <br>
+          <h3> You can reach us on:</h3>
+          <ul>
+            <li>Our email: <a href="#">mail@mail.com</a></li>
+            <li>Our twitter: <a href="#">@awesomeBooks</a></li>
+            <li>Our github: <a href="#">@awesomeBooks</a></li>
+          </ul>
+        </div>
+        
+      </section>
+    </div>
+  <footer class="footer">
+    <p>© 2022 Awesome Books, Inc. All right reserved.</p>
+  </footer>
+
+    <script src="main.js"></script>
+    <script src="navigation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
   </body>
 </html>
