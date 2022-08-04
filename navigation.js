@@ -23,4 +23,3 @@ contactLink.addEventListener('click', () => {
   pageTwo.style.display = 'none';
   pageThree.style.display = 'flex';
 });
-

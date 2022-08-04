@@ -83,9 +83,8 @@ window.onload = () => {
 
 // Current Date & Time
 
-let today = new Date();
-let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-let dateTime = date+', '+time;
+const today = new Date();
+const date = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+const dateTime = `${date}, ${time}`;
 document.getElementById('date').innerHTML = dateTime;
-
