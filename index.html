@@ -15,41 +15,71 @@
   </head>
 
   <body>
-    <header>
-      <div class="header">
-        <div class="logo">
-          <img src="images/awesome-logo.svg" alt="Logo">
-        </div>
-        
-        <nav>
-          <ul class="nav-list">
-            <li><a href="#" id="navList" onclick="displaySection('list')">List</a></li>
-            <li>|</li>
-            <li><a href="#" id="navNew" onclick="displaySection('form')">Add New</a></li>
-            <li>|</li>
-            <li><a href="#" id="navContact" onclick="displaySection('contact')">Contact</a></li>
-          </ul>
-        </nav>
+    <nav class="navigation-bar">
+      <div>
+        <h2>Awesome Books</h2>
       </div>
-      <p id="date" class="date"></p>
-    </header>
+      <div class="navigation-pages">
+        <a class="first" href="#">Book list</a>
+        <a class="second" href="#">Add books</a>
+        <a class="third" href="#">Contact</a>
+      </div>
+    </nav>
+
     
+  <section class="book-list">
     <div class="container">
       <h1>All awesome books</h1>
       <div class="collection"></div>
       <div class="wave">
         <img src="images/wave.svg" alt="Divider" />
       </div>
+      </div>
+    </section>
+
+    <section class="add-books">
       <div class="input-container">
         <h1>Add a new book</h1>
         <form action="#" name="bookForm" class="form" method="post">
-          <input id="bookTitle" type="text" placeholder="Title" class="title" name="bookTitle" required>
-          <input id="bookAuthor" type="text" placeholder="Author" class="author" required>
+          <input
+            id="bookTitle"
+            type="text"
+            placeholder="Title"
+            class="title"
+            name="bookTitle"
+            required
+          />
+          <input
+            id="bookAuthor"
+            type="text"
+            placeholder="Author"
+            class="author"
+            required
+          />
           <button id="add-btn" type="button" class="add-button">Add</button>
         </form>
       </div>
     </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact us</h2>
+    <div>
+      <p class="contact-p"> If you have any questions please contact us</p>
+      <p class="reach"> You can reach us on:</p>
+    </div>
+    <ul>
+      <li>Our email is: mail@mail.com</li>
+      <li>Our phone is : 123456789</li>
+      <li>Our adress is: Address 1, Address 1</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p>All right reserved</p>
+  </footer>
 
     <script src="main.js"></script>
+    <script src="navigation.js"></script>
   </body>
 </html>

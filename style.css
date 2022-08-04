@@ -18,8 +18,8 @@ h1 {
 
 .container {
   margin: auto;
-  background-image: url(images/books-bkg.jpg);
-  background-size: cover;
+  /*background-image: url(images/books-bkg.jpg); 
+  background-size: cover;*/
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -70,4 +70,16 @@ input {
 button {
   width: fit-content;
   padding: 1px 5px;
+}
+
+.book-list{
+  display:flex;
+}
+
+.add-books{
+  display:none;
+}
+
+.contact{
+  display: none;
 }
