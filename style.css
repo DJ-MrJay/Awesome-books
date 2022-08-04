@@ -12,6 +12,10 @@ h1 {
   font-family: 'Rubik', sans-serif;
 }
 
+.logo {
+  width 100px;
+}
+
 .container {
   margin: auto;
   background-image: url(images/books-bkg.jpg);

@@ -1,56 +1,82 @@
-const addButton = document.querySelector('.button');
-const author = document.querySelector('.author');
+const collection = document.querySelector('.collection');
 const title = document.querySelector('.title');
-const list = document.querySelector('.list');
-const collection = [] || JSON.parse(localStorage.getItem('form'));
-const addingBooks = () => {
-  list.innerHTML = '';
-  collection.forEach((item) => {
-    const bookDiv = document.createElement('div');
-    bookDiv.classList.add('book-div');
-    const paragraph = document.createElement('p');
-    paragraph.classList.add('p1');
-    paragraph.textContent = `${item.title} written by ${item.author}`;
-    const removeButton = document.createElement('button');
-    removeButton.classList.add('remove');
-    removeButton.textContent = 'Remove';
-    removeButton.setAttribute('id', item.id);
-    const divider = document.createElement('hr');
-    bookDiv.appendChild(paragraph);
-    bookDiv.appendChild(removeButton);
-    list.appendChild(bookDiv);
-    bookDiv.appendChild(divider);
-  });
-};
+const author = document.querySelector('.author');
+const addButton = document.querySelector('.add-button');
+let id = 1 || JSON.parse(localStorage.getItem('maxID'));
 
-addingBooks();
-addButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (author.value && title.value) {
-    const book = {
-      title: title.value,
-      author: author.value,
-      id: Math.round(Date.now()),
-    };
-    collection.push(book);
-    localStorage.setItem('form', JSON.stringify(collection));
-    addingBooks();
-    author.value = '';
-    title.value = '';
+class BookObject {
+  constructor(title, author, id) {
+    this.title = title;
+    this.author = author;
+    this.id = id;
   }
-});
 
-function removeBook(targetId) {
-  const newArr = collection.filter((item) => item.id !== targetId);
-  collection.length = 0;
-  collection.push(...newArr);
-  localStorage.setItem('form', JSON.stringify(collection));
-  addingBooks();
+  static displayBooks = () => {
+    collection.innerHTML = '';
+    id = JSON.parse(localStorage.getItem('maxID'));
+    const keys = Object.keys(localStorage);
+    keys.forEach((element) => {
+      if (element === 'maxID') return;
+      const retrievedBook = JSON.parse(localStorage.getItem(element));
+      this.createElements(retrievedBook.title, retrievedBook.author, element);
+    });
+  }
+
+  static addBook = (title, author, id) => {
+    this.createElements(title, author, id);
+  }
+
+  static createElements = (title, author, id) => {
+    const removeButton = [];
+    const div = [];
+    div[id] = document.createElement('div');
+    div[id].setAttribute('id', id);
+    const pText = document.createElement('p');
+    pText.textContent = `"${title}" by ${author}`;
+
+    removeButton[id] = document.createElement('button');
+    removeButton[id].setAttribute('id', id);
+    removeButton[id].textContent = 'Remove';
+    removeButton[id].addEventListener('click', (e) => {
+      const key = e.target.id;
+      div[e.target.id].remove();
+      localStorage.removeItem(key);
+      if (collection.innerHTML === '') {
+        collection.style.border = 'none';
+      }
+    });
+    div[id].append(pText, removeButton[id]);
+    collection.appendChild(div[id]);
+    collection.style.border = '2px solid black';
+  }
+
+  static storeLS = (book, id) => {
+    localStorage.setItem(id, JSON.stringify(book));
+  }
+
+  static clearInputs = () => {
+    document.querySelector('.title').value = '';
+    document.querySelector('.author').value = '';
+  }
 }
 
-list.addEventListener('click', (e) => {
-  if (e.target.classList.contains('remove')) {
-    const targetid = parseInt(e.target.getAttribute('id'), 10);
-    removeBook(targetid);
+// Add Button
+addButton.addEventListener('click', () => {
+  if (title.value === '' || author.value === '') {
+    alert('Please fill in both fields'); // eslint-disable-line no-alert
+  } else {
+    BookObject.addBook(title.value, author.value, id);
+    const book = new BookObject(title.value, author.value, id);
+    BookObject.storeLS(book, id);
+    id += 1;
+    localStorage.setItem('maxID', id);
+    BookObject.clearInputs();
   }
 });
+
+window.onload = () => {
+  BookObject.displayBooks();
+  if (collection.innerHTML === '') {
+    collection.style.border = 'none';
+  }
+};

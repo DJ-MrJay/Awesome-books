@@ -11,10 +11,29 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Awesome Books</title>
   </head>
 
   <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <img src="images/awesome-logo.svg" alt="Logo">
+        </div>
+        
+        <nav>
+          <ul class="nav-list">
+            <li><a href="#" id="navList" onclick="displaySection('list')">List</a></li>
+            <li>|</li>
+            <li><a href="#" id="navNew" onclick="displaySection('form')">Add New</a></li>
+            <li>|</li>
+            <li><a href="#" id="navContact" onclick="displaySection('contact')">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p id="date" class="date"></p>
+    </header>
+    
     <div class="container">
       <h1>All awesome books</h1>
       <div class="collection"></div>
@@ -31,6 +50,6 @@
       </div>
     </div>
 
-    <script src="refactoring.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
