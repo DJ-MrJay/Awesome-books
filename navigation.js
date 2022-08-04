@@ -2,24 +2,25 @@ const pageOne = document.querySelector('.book-list');
 const pageTwo = document.querySelector('.add-books');
 const pageThree = document.querySelector('.contact');
 
-const link1 = document.querySelector('.first');
-const link2 = document.querySelector('.second');
-const link3 = document.querySelector('.third');
+const listLink = document.querySelector('.list-page');
+const addLink = document.querySelector('.add-page');
+const contactLink = document.querySelector('.contact-page');
 
-link1.addEventListener('click', () => {
+listLink.addEventListener('click', () => {
   pageOne.style.display = 'flex';
   pageTwo.style.display = 'none';
   pageThree.style.display = 'none';
 });
 
-link2.addEventListener('click', () => {
+addLink.addEventListener('click', () => {
   pageOne.style.display = 'none';
   pageTwo.style.display = 'flex';
   pageThree.style.display = 'none';
 });
 
-link3.addEventListener('click', () => {
+contactLink.addEventListener('click', () => {
   pageOne.style.display = 'none';
   pageTwo.style.display = 'none';
   pageThree.style.display = 'flex';
 });
+
