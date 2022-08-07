@@ -116,6 +116,13 @@ input {
   overflow-wrap: break-word;
 }
 
+button {
+  width: fit-content;
+  padding: 1px 5px;
+  border: 1px solid gray;
+  font-size: 18px;
+}
+
 .collection p {
   width: 85%;
 }
@@ -140,23 +147,16 @@ section {
   min-height: 74vh;
 }
 
-button {
-  width: fit-content;
-  padding: 1px 5px;
-  border: 1px solid gray;
-  font-size: 18px;
+button:hover {
+  border: 2px solid white;
+  background-color: #055;
+  color: #fff;
 }
 
 .collection button:hover {
   color: #fff;
   background-color: #055;
   border: 1px solid #055;
-}
-
-button:hover {
-  border: 2px solid white;
-  background-color: #055;
-  color: #fff;
 }
 
 .footer {
