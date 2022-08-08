@@ -1,41 +1,38 @@
-# Awesome-books
+# Awesome Books
 
-Javascript project that is adding and removing book list.
+This project is about building a simple website that displays a list of books and allows you to add and remove books from that list. 
 
 ## Built With
 
 - HTML
 - CSS
 - Javascript
-  To get a local copy up and running follow these simple example steps.
 
-## Authors
+## Getting Started
+To setup, follow these simple steps.
 
-**Jonah Wambua**
+- Clone the [repo](https://github.com/DJ-MrJay/Awesome-books) or download the .zip file. 
+- Run with live server or simply open index.html with your browser.
+
+## Author
 
 - GitHub: [@githubhandle](https://github.com/DJ-MrJay)
 - Twitter: [@twitterhandle](https://twitter.com/jonah_wambua)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mr-jay/)
 
-**Edi Sipka**
+## Contributors
 
-- GitHub: [@Edi-Sipka](https://github.com/edi-sipka)
-- Twitter: [@sipka_edii](https://twitter.com/sipka_edii)
-- LinkedIn: [Edi Sipka](https://www.linkedin.com/in/edi-%C5%A1ipka-5b681b202/)
+Contributions and feature requests are welcome!
 
-##  Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues/).
+- Check out the [contributors](https://github.com/DJ-MrJay/Awesome-books/graphs/contributors) to this project.
 
 ## Show your support
 
-Give a :star:️ if you like this project!
+Give ⭐️⭐️⭐️⭐️⭐️ if you like this project!
 
-## Acknowledgments
+## Live Demo
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+This project is live on Github [Pages](https://dj-mrjay.github.io/Awesome-books)
 
 ## :memo: License
 
