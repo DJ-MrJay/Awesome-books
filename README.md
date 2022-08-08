@@ -32,7 +32,7 @@ Give ⭐️⭐️⭐️⭐️⭐️ if you like this project!
 
 ## Live Demo
 
-This project is live on Github [Pages](https://dj-mrjay.github.io/Awesome-books)
+This project is live on Github [Pages](https://dj-mrjay.github.io/Awesome-books).
 
 ## :memo: License
 
